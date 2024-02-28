@@ -5,7 +5,13 @@ public class Main{
         "The path less traveled", "Country", "BZEE Music", "Rhythm Divine");
 
         System.out.println("Now playing the song");
-        mbox.playSong(mbox.getSongID(), mbox.getPremiumSong(), 2);
+        mbox.playSong(mbox.getSongID(), mbox.getPremiumSong(), 1);
+
+        MusicBox mbox2 = new MusicBox("S34TG65", 'N', "Raindrops", "Misty", 
+        "The path less traveled", "Country", "BZEE Music", "Rhythm Divine");
+
+        System.out.println("Now playing the song");
+        mbox2.playSong(mbox2.getSongID(), mbox2.getPremiumSong(), 1);
         
         // --- TODO
 
