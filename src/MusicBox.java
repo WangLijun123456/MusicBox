@@ -1,4 +1,3 @@
-
 public class MusicBox {
 
     // Variables
@@ -12,20 +11,26 @@ public class MusicBox {
     public String songMusicLabel;
     public int noAds;
 
-    //Constructor
-    public MusicBox(String songID, char premiumSong, String title, String artists, String Album, String genre, String producer, String label) {
+    // Constructor
+    public MusicBox(String songID, char premiumSong, String title, String artists, String Album, String genre, String producer, String label, int ads) {
         this.songID = songID;
         this.isSongPremium = premiumSong;
+        this.songTitle = title;
         this.songArtists = artists;
-        
-        // -- TODO
-        /* Initialise  the rest of the variables in this Constructor block*/
+        this.songAlbum = Album;
+        this.songGenre = genre;
+        this.songProducer = producer;
+        this.songMusicLabel = label;
+        this.noAds = ads;
     }
     
-    
-    //Methods
+    // Getters
     public String getSongID() {
         return songID;
+    }
+
+    public String getSongTitle() {
+        return songTitle;
     }
 
     public String getSongArtists() {
@@ -36,34 +41,47 @@ public class MusicBox {
         return isSongPremium;
     }
 
+    public String getSongAlbum() {
+        return songAlbum;
+    }
 
-    // -- TODO
-        /* Create the rest of "getters" for the remaining variables */
-    
-        public void playSong(String songID, char premium, int ads) {
-            switch(premium){
-                case 'Y':
+    public String getSongGenre() {
+        return songGenre;
+    }
+
+    public String getSongProducer() {
+        return songProducer;
+    }
+
+    public String getSongMusicLabel() {
+        return songMusicLabel;
+    }
+
+    public int getNoAds() {
+        return noAds;
+    }
+
+    // Methods
+    public void playSong() {
+        switch(isSongPremium) {
+            case 'Y':
                 System.out.println("This is a premium song. Please buy it to play without the ads");
-                playAd(ads, premium);
+                playAd();
                 break;
-                case 'N':
+            case 'N':
                 System.out.println("Thank you for choosing this song. Hope you enjoy listening to it.");
-                playAd(ads, premium);
+                playAd();
                 break;
-            }
         }
-    
-        private void playAd(int ads, char premium) {
-            if (ads == 1) {
-                System.out.println("Playing Ad 1");
-            }
-            else {
-                for(int i=1; i<=ads; i++){
-                    System.out.println("Playing Ad " + i);
-                }
-            }
-            
-        }
-    
-}
+    }
 
+    private void playAd() {
+        if (noAds == 1) {
+            System.out.println("Playing Ad 1");
+        } else {
+            for (int i = 1; i <= noAds; i++) {
+                System.out.println("Playing Ad " + i);
+            }
+        }
+    }
+}
